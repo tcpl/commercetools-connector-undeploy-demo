@@ -28,7 +28,7 @@ export const getLogger = (useBatchLogRecordProcessor: boolean = true) => {
     ) {
       const loggerProvider = new LoggerProvider({
         resource: resourceFromAttributes({
-          ['service.name']: `tcpl-segment-connector:${configuration.projectKey}`,
+          ['service.name']: `tcpl-demo-connector:${configuration.projectKey}`,
         }),
       });
       const logExporter = new OTLPLogExporter({
