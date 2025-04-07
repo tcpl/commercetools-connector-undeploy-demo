@@ -1,33 +1,3 @@
-deployAs:
-  - name: service
-    applicationType: service
-    endpoint: /
-    scripts:
-      postDeploy: yarn install && yarn build && yarn connector:post-deploy
-      preUndeploy: yarn install && yarn build && yarn connector:pre-undeploy
-    configuration:
-      standardConfiguration:
-        - key: CTP_PROJECT_KEY
-          description: commercetools project key
-          required: true
-        - key: CTP_CLIENT_ID
-          description: commercetools client ID
-          required: true
-        - key: CTP_AUTH_URL
-          description: Auth URL
-          default: https://auth.europe-west1.gcp.commercetools.com
-        - key: CTP_API_URL
-          description: API URL
-          default: https://api.europe-west1.gcp.commercetools.com
-        - key: OTEL_EXPORTER_OTLP_ENDPOINT
-          description: OpenTelemetry OTLP exporter endpoint
-          default: https://otlp.eu01.nr-data.net:4318
-      securedConfiguration:
-        - key: CTP_CLIENT_SECRET
-          description: commercetools client secret
-          required: true
-        - key: OTEL_EXPORTER_OTLP_ENDPOINT_API_KEY
-          description: OpenTelemetry OTLP exporter API key
 # deployAs:
 #   - name: service
 #     applicationType: service
@@ -37,13 +7,43 @@ deployAs:
 #       preUndeploy: yarn install && yarn build && yarn connector:pre-undeploy
 #     configuration:
 #       standardConfiguration:
+#         - key: CTP_PROJECT_KEY
+#           description: commercetools project key
+#           required: true
+#         - key: CTP_CLIENT_ID
+#           description: commercetools client ID
+#           required: true
+#         - key: CTP_AUTH_URL
+#           description: Auth URL
+#           default: https://auth.europe-west1.gcp.commercetools.com
+#         - key: CTP_API_URL
+#           description: API URL
+#           default: https://api.europe-west1.gcp.commercetools.com
 #         - key: OTEL_EXPORTER_OTLP_ENDPOINT
 #           description: OpenTelemetry OTLP exporter endpoint
 #           default: https://otlp.eu01.nr-data.net:4318
 #       securedConfiguration:
+#         - key: CTP_CLIENT_SECRET
+#           description: commercetools client secret
+#           required: true
 #         - key: OTEL_EXPORTER_OTLP_ENDPOINT_API_KEY
 #           description: OpenTelemetry OTLP exporter API key
-# inheritAs:
-#   apiClient:
-#     scopes:
-#       - manage_extensions
+deployAs:
+  - name: service
+    applicationType: service
+    endpoint: /
+    scripts:
+      postDeploy: yarn install && yarn build && yarn connector:post-deploy
+      preUndeploy: yarn install && yarn build && yarn connector:pre-undeploy
+    configuration:
+      standardConfiguration:
+        - key: OTEL_EXPORTER_OTLP_ENDPOINT
+          description: OpenTelemetry OTLP exporter endpoint
+          default: https://otlp.eu01.nr-data.net:4318
+      securedConfiguration:
+        - key: OTEL_EXPORTER_OTLP_ENDPOINT_API_KEY
+          description: OpenTelemetry OTLP exporter API key
+inheritAs:
+  apiClient:
+    scopes:
+      - manage_extensions
