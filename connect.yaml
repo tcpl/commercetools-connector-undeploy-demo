@@ -7,19 +7,16 @@ deployAs:
       preUndeploy: yarn install && yarn build && yarn connector:pre-undeploy
     configuration:
       standardConfiguration:
-        - key: CTP_REGION
-          description: commercetools API region
-          required: true
-          default: "europe-west1.gcp"
         - key: CTP_PROJECT_KEY
           description: commercetools project key
           required: true
         - key: CTP_CLIENT_ID
           description: commercetools client ID
           required: true
-        - key: CTP_SCOPES
-          description: commercetools client scopes (e.g. manage_extensions:${project key})
-          required: true
+        - key: CTP_AUTH_URL
+          default: https://auth.europe-west1.gcp.commercetools.com
+        - key: CTP_API_URL
+          default: https://api.europe-west1.gcp.commercetools.com
         - key: OTEL_EXPORTER_OTLP_ENDPOINT
           description: OpenTelemetry OTLP exporter endpoint
           default: https://otlp.eu01.nr-data.net:4318
