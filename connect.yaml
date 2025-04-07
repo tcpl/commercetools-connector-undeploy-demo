@@ -14,8 +14,10 @@ deployAs:
           description: commercetools client ID
           required: true
         - key: CTP_AUTH_URL
+          description: Auth URL
           default: https://auth.europe-west1.gcp.commercetools.com
         - key: CTP_API_URL
+          description: API URL
           default: https://api.europe-west1.gcp.commercetools.com
         - key: OTEL_EXPORTER_OTLP_ENDPOINT
           description: OpenTelemetry OTLP exporter endpoint
